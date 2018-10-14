@@ -23,7 +23,7 @@ export default {
   data () {
     return {
       editor: null,
-      title: '',
+      title: ''
     }
   },
   props: {

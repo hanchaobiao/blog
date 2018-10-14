@@ -1,7 +1,7 @@
 <template>
     <div class="header">
       <div class="image">
-        <span><img src="http://127.0.0.1:8000/media/article/20180916/20180916103632900.jpg"/></span>
+        <span><img src="./images/head-image.jpg"/></span>
         <span class="title">baby的小窝</span>
       </div>
     </div>

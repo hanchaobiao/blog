@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="article" v-html="articles[this.$route.params.id].content">
+    <div class="article-content" v-html="articles[this.$route.params.id].content">
     </div>
     </div>
 </template>
@@ -10,20 +10,16 @@ import {mapState} from 'vuex'
 export default {
   computed: {
     ...mapState(['articles'])
-    // defaultData () {
-    //   map
-    //   return {
-    //     content: this.$store.state.articles[this.$route.params.id].content,
-    //   }
-    // }
   }
 }
 </script>
 
 <style>
-.article {
+.article-content {
   width: 1000px;
-  margin-top: 20px;
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(255,255,255,0.6);;
 }
 
 li {display: list-item }

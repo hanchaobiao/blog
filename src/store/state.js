@@ -3,5 +3,6 @@
 * */
 export default {
   articles: [],
-  articleCount: 0
+  articleCount: 0,
+  selectNav: 0
 }

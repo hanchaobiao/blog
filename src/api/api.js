@@ -7,3 +7,9 @@ export const createArticle = params => { return axios.post(`${host}/article/`, p
 
 // 查看文章列表
 export const getArticles = params => { return axios.get(`${host}/article/`, { params: params }) }
+
+// 相册列表
+export const getPhotoList = params => { return axios.get(`${host}/photo/`, params) }
+
+// 查看某一个相册
+export const getPhotoImageList = params => { return axios.get(`${host}/photoImage/`, {params: params}) }

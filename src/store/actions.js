@@ -1,7 +1,7 @@
 /*
 * 包含多个接收组件通知出发mutation调用间接状态的方法的对象
 * */
-import {GET_ARTICLES} from './mutations_types'
+import {GET_ARTICLES, SET_SELECT_NAV} from './mutations_types'
 import {getArticles} from '../api/api'
 export default {
   async getArticlesList ({commit, state}, parmas) {
@@ -17,5 +17,9 @@ export default {
         message: '请求发送异常'
       })
     })
+  },
+  async setSelectNav ({commit}, index) {
+    console.log(index)
+    commit(SET_SELECT_NAV, index)
   }
 }

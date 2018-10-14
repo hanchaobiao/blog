@@ -4,15 +4,15 @@
       <v-header></v-header>
       <div class="nav-wapper">
         <div class="tab">
-          <div class="tab-item">
-            <router-link to="/homePage">首页</router-link>
+          <div class="tab-item" >
+            <router-link to="/homePage" @click.native="setSelectNav(0)" :class="{ active: selectNav === 0 }">首页</router-link>
           </div>
           <div class="tab-item">
-            <router-link to="/json">相册</router-link>
+            <router-link to="/photo" @click.native="setSelectNav(1)" :class="{ active: selectNav === 1 }">相册</router-link>
           </div>
-          <div class="tab-item">
-            <router-link to="/ueditor">留言</router-link>
-          </div>
+          <!--<div class="tab-item">-->
+            <!--<router-link to="/ueditor">留言</router-link>-->
+          <!--</div>-->
         </div>
       </div>
       <router-view></router-view>
@@ -22,11 +22,21 @@
 
 <script>
 import Header from './components/home/Header/Header.vue'
+import {mapState} from 'vuex'
 export default {
+  computed: {
+    ...mapState(['selectNav'])
+  },
   components: {'v-header': Header},
   mounted () {
     // 初始化请求数据
     this.$store.dispatch('getArticlesList', {page: this.page, page_size: this.page_size})
+    this.$store.dispatch('setSelectNav', 0)
+  },
+  methods: {
+    setSelectNav (index) {
+      this.$store.dispatch('setSelectNav', index)
+    }
   }
 }
 </script>
@@ -70,6 +80,8 @@ export default {
   }
   .active {
     color: white;
+    font-size: 20px;
+    font-weight: 500;
     display: inline-block;
     background-color: #C93282;
     border-radius: 15px 0 15px 0;
